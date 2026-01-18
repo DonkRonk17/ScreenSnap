@@ -1,6 +1,6 @@
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/4f9a847a-3aef-4438-9d70-7019adf6bb49" />
 
-*ScreenSnap
+# ScreenSnap
 
 **Simple cross-platform screenshot tool for troubleshooting - capture screen instantly via CLI or Python API**
 
