@@ -1,6 +1,6 @@
-# ScreenSnap
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/4f9a847a-3aef-4438-9d70-7019adf6bb49" />
 
-![ScreenSnap Title Card](branding/titlecard_screensnap.png)
+# ScreenSnap
 
 **Simple cross-platform screenshot tool for troubleshooting - capture screen instantly via CLI or Python API**
 
@@ -283,6 +283,9 @@ screensnap android_studio.png
 **ROI:** 15-30x in first month
 
 ---
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/c4003d30-14df-423a-8229-9c615beb3954" />
+
 
 ## 🤝 Contributing
 
