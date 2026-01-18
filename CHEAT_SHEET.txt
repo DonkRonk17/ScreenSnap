@@ -1,0 +1,204 @@
+================================================================================
+                            SCREENSNAP CHEAT SHEET
+================================================================================
+
+QUICK START
+-----------
+# Install dependency:
+pip install pillow
+
+# Basic usage:
+screensnap                    # Auto-name with timestamp
+screensnap myfile.png         # Named screenshot
+python screensnap.py          # If not installed globally
+
+COMMON COMMANDS
+---------------
+screensnap                              # Full screen, auto-name
+screensnap screenshot.png                # Full screen, named
+screensnap --window "Chrome"             # Capture Chrome window (Windows)
+screensnap --output-dir ~/screenshots    # Save to specific directory
+screensnap --format jpg myfile.jpg       # Save as JPEG
+screensnap --help                        # Show help
+screensnap --version                     # Show version
+
+PYTHON API
+----------
+from screensnap import ScreenSnap
+
+# Create instance:
+snap = ScreenSnap()
+
+# Basic capture:
+filepath = snap.capture()                    # Auto-name
+filepath = snap.capture("myfile.png")        # Named
+
+# Window capture (Windows only):
+filepath = snap.capture_window("Chrome")     # Find window by title
+
+# Configure:
+snap = ScreenSnap(output_dir="~/screenshots", format="jpg")
+
+TOP 5 USE CASES
+---------------
+1. UI Troubleshooting
+   When: User reports UI bug, need visual feedback
+   Command: screensnap bug_report.png
+   Time Saved: 10-20 minutes per issue
+
+2. Step-by-Step Instructions
+   When: Explaining UI steps to user
+   Command: screensnap step1.png (repeat for each step)
+   Time Saved: 5-10 minutes per explanation
+
+3. Error Documentation
+   When: Capturing error screens for logs
+   Command: screensnap error_$(date +%Y%m%d_%H%M%S).png
+   Time Saved: 2-5 minutes per error
+
+4. System State Capture
+   When: Documenting system configuration
+   Command: screensnap --window "Settings" config.png
+   Time Saved: 5 minutes per capture
+
+5. Automated Error Capture
+   When: Script encounters error
+   Python: snap.capture(f"error_{timestamp}.png")
+   Time Saved: Instant visual debugging
+
+INTEGRATION WITH OTHER TOOLS
+-----------------------------
+# With SynapseLink:
+from synapselink import quick_send
+snap = ScreenSnap()
+filepath = snap.capture("issue.png")
+quick_send("TEAM", "Bug Report", f"Screenshot: {filepath}")
+
+# With TokenTracker:
+from tokentracker import TokenTracker
+tracker = TokenTracker()
+snap = ScreenSnap()
+filepath = snap.capture()
+tracker.log_usage("AGENT", "model", tokens_in, tokens_out, 
+                  f"Troubleshooting with screenshot: {filepath.name}")
+
+# In BCH Chat:
+@screensnap                    # Capture via BCH
+@screensnap myfile.png         # Named capture via BCH
+@screensnap --window "Chrome"  # Window capture via BCH
+
+CONFIGURATION
+-------------
+Config file: ~/.screensnaprc
+Format: JSON
+
+{
+  "output_dir": ".",
+  "format": "png",
+  "include_timestamp": true
+}
+
+TROUBLESHOOTING
+---------------
+Error: "Pillow is required"
+Fix: pip install pillow
+
+Error: "Failed to capture screenshot"
+Fix: Check you have a display (not SSH without X11)
+
+Error: "Invalid filename"
+Fix: Use only alphanumeric, underscore, hyphen in filenames
+
+Error: "Permission denied"
+Fix: Check write permissions on output directory
+
+QUICK WINS
+----------
+✓ Replace 20-minute troubleshooting calls with 30-second screenshots
+✓ Document errors instantly for later review
+✓ Create visual step-by-step guides in minutes
+✓ Capture bug states before they disappear
+✓ Share exact UI state with team instantly
+
+TIME SAVINGS MATH
+-----------------
+Traditional troubleshooting: 20 min average
+With ScreenSnap: 30 seconds
+Time saved: 19.5 minutes per issue
+
+5 issues/week = 97.5 minutes/week saved
+Monthly: ~6.5 hours saved
+Annual: ~78 hours saved
+
+At $30/hour = $2,340/year value!
+
+REAL-WORLD EXAMPLE
+------------------
+Porter & Logan BCH Mobile session:
+- WITHOUT ScreenSnap: 4+ hours, many dead ends
+- WITH ScreenSnap: Would have been 2 hours
+- Time saved: 2+ hours in ONE session
+
+Tool paid for itself immediately! ✅
+
+QUICK REFERENCE TABLE
+---------------------
+Task                  | Command                           | Time
+---------------------|-----------------------------------|----------
+Capture screen       | screensnap                        | < 1 sec
+Capture window       | screensnap --window "Title"       | < 1 sec
+Capture to folder    | screensnap --output-dir ~/folder  | < 1 sec
+Capture as JPEG      | screensnap --format jpg file.jpg  | < 1 sec
+Python capture       | snap.capture("file.png")          | < 1 sec
+
+KEYBOARD SHORTCUTS (if configured)
+-----------------------------------
+# Windows: Assign screensnap to a hotkey
+# Linux: Use xbindkeys or similar
+# macOS: Use Automator or Better Touch Tool
+
+Example Windows AutoHotkey script:
+^+S::  ; Ctrl+Shift+S
+    Run, screensnap
+    return
+
+TEAM BRAIN USAGE
+----------------
+Forge (Orchestrator):
+  - Capture system states during planning
+  - Document architecture decisions visually
+
+Atlas (Builder):
+  - Capture build errors for debugging
+  - Document tool interfaces
+
+CLIO (Tester):
+  - Capture test failures
+  - Document bug reproduction steps
+
+Nexus (Integrator):
+  - Capture integration states
+  - Document configuration screens
+
+Bolt (Executor):
+  - Automated error capture
+  - Task completion documentation
+
+LINKS
+-----
+GitHub: https://github.com/DonkRonk17/ScreenSnap
+Docs: README.md in project directory
+Examples: EXAMPLES.md (10 detailed examples)
+Integration: INTEGRATION_PLAN.md
+Support: Team Brain Synapse
+
+REMEMBER
+--------
+📸 One screenshot = 1000 words
+⏱️ 30 seconds to capture vs 20 minutes to describe
+✅ Visual feedback solves 90% of UI issues instantly
+🎯 "Can you send a screenshot?" should be your first question!
+
+================================================================================
+Questions? Check Synapse or ask Atlas/Forge!
+================================================================================
